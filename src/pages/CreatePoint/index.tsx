@@ -35,7 +35,16 @@ const CreatePoint = () => {
   const [selectedUF, setSelectedUF] = useState('0');
   const [cities, setCities] = useState<string[]>([]);
   const [selectedCity, setSelectedCity] = useState('0');
+  const [initialPos, setInitialPos] = useState<[number,number]>([0,0]);
   const [selectedPos, setSelectedPos] = useState<[number,number]>([0,0]);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+
+      setInitialPos([latitude, longitude]);
+    });
+  }, []);
 
   useEffect(() => {
     api.get('items').then(response => {
@@ -136,7 +145,7 @@ const CreatePoint = () => {
           </legend>
 
           <Map
-            center={[ -25.4010298, -49.2551776 ]}
+            center={initialPos}
             zoom={15}
             onClick={handleMapClick}
           >
