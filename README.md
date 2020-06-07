@@ -1,6 +1,7 @@
 # New Level Week 01 - Frontend - Web
 
 Frontend web of ECOLETA application, using Typescript, Javascript, and ReactJS.
+
 Applicationd developed based on this Figma template, built by Rocketseat team.
 https://www.figma.com/file/1SxgOMojOB2zYT0Mdk28lB/Ecoleta
 
